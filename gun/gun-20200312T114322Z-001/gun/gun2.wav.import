@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gun2.wav-008bbb7a40e466c0d81df277b62f777a.sample"
+
+[deps]
+
+source_file="res://gun/gun-20200312T114322Z-001/gun/gun2.wav"
+dest_files=[ "res://.import/gun2.wav-008bbb7a40e466c0d81df277b62f777a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

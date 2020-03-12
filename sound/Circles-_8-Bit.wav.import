@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Circles-_8-Bit.wav-9e980b15844f0893026cd389fc8604b0.sample"
+
+[deps]
+
+source_file="res://sound/Circles-_8-Bit.wav"
+dest_files=[ "res://.import/Circles-_8-Bit.wav-9e980b15844f0893026cd389fc8604b0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

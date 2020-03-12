@@ -1,0 +1,261 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://P/1/Stone_tiles_floor_01_1K_Base_Color.png" type="Texture" id=1]
+[ext_resource path="res://P/1/Stone_tiles_floor_01_1K_Height.png" type="Texture" id=2]
+[ext_resource path="res://P/1/Stone_tiles_floor_01_2K_Roughness.png" type="Texture" id=3]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Target.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Ammo_Pickup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Health_Pickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/Space_Level_Objects/Space_Level_Mesh_Lib.tres" type="MeshLibrary" id=8]
+[ext_resource path="res://assets/Ruin_Level_Objects/Ruin_Level_Mesh_Lib.tres" type="MeshLibrary" id=9]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 80, 80 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
+
+[sub_resource type="PlaneMesh" id=4]
+size = Vector2( 80, -80 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 80, 80 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=11]
+material = SubResource( 10 )
+size = Vector2( 80, 80 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=15]
+material = SubResource( 14 )
+size = Vector2( 81, 81 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=17]
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="QuadMesh" id=19]
+material = SubResource( 18 )
+size = Vector2( 80, 80 )
+
+[sub_resource type="BoxShape" id=20]
+
+[sub_resource type="SphereMesh" id=21]
+
+[sub_resource type="SpatialMaterial" id=22]
+flags_unshaded = true
+
+[node name="ubu" type="Spatial"]
+
+[node name="floor_wall" type="Spatial" parent="."]
+
+[node name="floor" type="MeshInstance" parent="floor_wall"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/floor/StaticBody"]
+transform = Transform( 40, 0, 0, 0, 1, 0, 0, 0, 40, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="roof" type="MeshInstance" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/roof"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/roof/StaticBody"]
+shape = SubResource( 6 )
+
+[node name="wall_1" type="MeshInstance" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 40, -40 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/wall_1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/wall_1/StaticBody"]
+transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 9 )
+
+[node name="wall_2" type="MeshInstance" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, -1, -8.74228e-008, 0, 8.74228e-008, -1, 13.4199, 36.5402, 39.6236 )
+mesh = SubResource( 11 )
+material/0 = SubResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/wall_2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/wall_2/StaticBody"]
+transform = Transform( -40, 0, 0, 0, 40, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="wall_3" type="MeshInstance" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, 40, 40, 0 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/wall_3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/wall_3/StaticBody"]
+transform = Transform( 40, 0, 0, 0, 40, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 17 )
+
+[node name="wall_4" type="MeshInstance" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -40, 40, 0 )
+mesh = SubResource( 19 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="floor_wall/wall_4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="floor_wall/wall_4/StaticBody"]
+transform = Transform( 40, 0, 0, 0, -40, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 20 )
+
+[node name="OmniLight" type="OmniLight" parent="floor_wall"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 61.2604, 0 )
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="floor_wall/OmniLight"]
+mesh = SubResource( 21 )
+material/0 = SubResource( 22 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.0224807, 0, 0.999747, 0, 1, 0, -0.999747, 0, 0.0224807, -33.3599, -2.08619, 32.3686 )
+
+[node name="Target" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Target_Whole" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 39 )
+
+[node name="Target_Whole2" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 12, 39 )
+
+[node name="Target_Whole3" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 15, 39 )
+
+[node name="Target_Whole4" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, -1, 0, 1, 0, 1, 0, -4.37114e-008, -39, 20, 0 )
+
+[node name="Target_Whole5" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 39, 30, -10.841 )
+
+[node name="Target_Whole6" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, -19.497, 79, -13.471 )
+
+[node name="Target_Whole7" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -5.7854, 25, -39 )
+
+[node name="Target_Whole8" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -1, 0, -8.74228e-008, 0, 1, 0, 8.74228e-008, 0, -1, -14.757, 70, -39 )
+
+[node name="Target_Whole9" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -0.00112138, -0.0342532, 0.999412, 0.0326999, 0.998877, 0.0342716, -0.999465, 0.0327191, -4.36857e-008, 39.7338, 26.3914, 28.1393 )
+
+[node name="Target_Whole10" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 39.7925, 45.8497, 4.87109 )
+
+[node name="Target_Whole11" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 47.7421, 39.7555 )
+
+[node name="Target_Whole12" parent="Target" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7708, 30.8002, 39.801 )
+
+[node name="ammo" type="Spatial" parent="."]
+
+[node name="Ammo_Pickup" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( -0.164143, 0, -0.986436, 0, 1, 0, 0.986436, 0, -0.164143, -24.4447, 1.33355, 30.0162 )
+
+[node name="Ammo_Pickup2" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( -0.0935198, 0, -0.995617, 0, 1, 0, 0.995617, 0, -0.0935198, -25.6938, 1.0907, 36.4582 )
+
+[node name="Ammo_Pickup3" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( -0.824036, 0, -0.566538, 0, 1, 0, 0.566538, 0, -0.824036, 0, 58.2578, 0 )
+
+[node name="Ammo_Pickup4" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( 0.629449, 0, -0.777042, 0, 1, 0, 0.777042, 0, 0.629449, 14.3538, 58.3319, 0 )
+
+[node name="Ammo_Pickup5" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( -0.801364, 0, 0.598177, 0, 1, 0, -0.598177, 0, -0.801364, 0, 58.1922, 13.7491 )
+
+[node name="Ammo_Pickup6" parent="ammo" instance=ExtResource( 6 )]
+transform = Transform( 0.0583553, 0, 0.998296, 0, 1, 0, -0.998296, 0, 0.0583553, 14.7465, 58.5521, 11.0767 )
+
+[node name="Health_Pickup" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( -0.153853, 0.0861339, -0.984332, 0.149449, 0.986761, 0.0629873, 0.976726, -0.137417, -0.164689, 29.3028, 58.5559, 21.5174 )
+
+[node name="Health_Pickup2" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.9922, 58.5406, 11.835 )
+
+[node name="Health_Pickup3" parent="ammo" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0891, 2.6366, -17.2059 )
+
+[node name="obj" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.02543, -0.962107, -0.728497 )
+
+[node name="oj1" type="GridMap" parent="obj"]
+mesh_library = ExtResource( 8 )
+data = {
+"cells": PoolIntArray( 524270, 0, 6, 1376243, 0, 2, 196594, 1, 327690, 1310725, 1, 1441797, 1310730, 1, 2, 1310735, 1, 2, 1310737, 1, 2, 1376244, 1, 1441802, 786446, 2, 2, 786449, 2, 2, 1703928, 2, 1048588, 1966082, 2, 3, 1966087, 2, 3, 1966092, 2, 3, 1966097, 2, 3, 2031598, 2, 3, 2031603, 2, 3, 2031608, 2, 3, 2031613, 2, 3, 786442, 3, 1441802, 983050, 3, 1441805, 1376237, 3, 2, 1376239, 3, 2, 1376243, 4, 1610612738, 524270, 5, 6, 196594, 6, 327690, 1310727, 6, 1441802, 1310732, 6, 2, 1310733, 6, 2, 1310737, 6, 2, 1376244, 6, 1441802, 1638407, 6, 1441805, 1703928, 6, 1048589, 196594, 7, 327690, 524270, 7, 786440, 786446, 7, 2, 786450, 7, 2, 1376238, 7, 2, 1638402, 7, 655373, 1638407, 7, 655373, 1703928, 7, 655373, 1703933, 7, 655373, 1966082, 7, 3, 1966087, 7, 3, 1966092, 7, 3, 1966097, 7, 3, 2031598, 7, 3, 2031603, 7, 3, 2031608, 7, 3, 2031613, 7, 3, 786442, 8, 458762, 983050, 8, 1441805, 1048563, 8, 655373, 1376239, 8, 2, 1376243, 8, 2, 1310723, 11, 10, 1310727, 11, 10, 1310732, 11, 2, 1310737, 11, 2, 1376248, 11, 10, 1376249, 11, 10, 1376254, 11, 10, 196590, 12, 10, 196595, 12, 10, 196600, 12, 10, 196605, 12, 10, 196606, 12, 1441802, 458754, 12, 1048586, 524270, 12, 10, 524275, 12, 10, 524280, 12, 10, 524285, 12, 10, 786432, 12, 10, 786435, 12, 1441794, 786436, 12, 10, 786440, 12, 2, 786441, 12, 10, 786445, 12, 2, 786449, 12, 2, 851948, 12, 1441794, 851951, 12, 1441794, 851955, 12, 10, 851956, 12, 1441794, 851959, 12, 10, 851961, 12, 1441794, 851964, 12, 536870922, 851966, 12, 1441794, 983042, 12, 13, 983047, 12, 1610612749, 983050, 12, 1610612746, 1048568, 12, 1610612749, 1048573, 12, -1610612723, 1310720, 12, 1612054535, 1310722, 12, 1612054535, 1310725, 12, 538312711, 1310729, 12, 538312711, 1376237, 12, 2, 1376248, 12, 1612054535, 1376253, 12, 538312711, 1966082, 12, 1610612739, 1966087, 12, -1610612733, 1966092, 12, -1610612733, 1966097, 12, 536870915, 2031598, 12, 536870915, 2031603, 12, -1610612733, 2031608, 12, 536870915, 2031613, 12, 1073741827, 1376239, 13, 536870914, 1376243, 13, 2, 1310722, 14, 2, 1310727, 14, 2, 1376248, 14, 1610612738, 1376253, 14, 2, 1310737, 15, 1610612738, 1310732, 16, 1073741826, 131074, 17, 1310720, 458754, 17, 1611661313, 786435, 17, 1441794, 786440, 17, 2, 786445, 17, 2, 786450, 17, 1610612738, 851948, 17, 1441794, 851951, 17, 1441794, 851956, 17, 1612054530, 851961, 17, 1441794, 851966, 17, 1075183618, 1310732, 17, 2, 1376237, 17, 536870914, 1376248, 17, 1610612738, 1966082, 17, 3, 1966087, 17, 1610612739, 1966092, 17, 1610612739, 1966097, 17, 3, 2031598, 17, 1610612739, 2031603, 17, 3, 2031608, 17, -1610612733, 2031613, 17, 3, 1310737, 18, 2, 1376239, 18, 2, 1376243, 18, 536870914, 1376253, 18, 2, 1310722, 19, 536870914, 1310727, 19, 536870914, 196595, 65518, -1609564152, 524270, 65518, 536870918, 786437, 65518, 538312709, 786446, 65518, 536870914, 786449, 65518, 2, 983032, 65518, 655365, 1310727, 65518, 1441802, 1310732, 65518, 2, 1310737, 65518, 2, 1376238, 65518, 2, 1376243, 65518, 1441800, 1638407, 65518, 1441805, 1703928, 65518, 538312712, 1703929, 65518, -1609170932, 1966082, 65518, -1610612733, 1966087, 65518, 3, 1966092, 65518, 3, 1966097, 65518, 3, 2031613, 65518, 3, 1376237, 65519, 536870914, 1376238, 65519, 2, 524270, 65522, 6, 1310727, 65522, 538312714, 1310737, 65522, 2, 196594, 65523, 327690, 786446, 65523, 2, 786449, 65523, 2, 1310732, 65523, 2, 1376243, 65523, 2, 1376244, 65523, 1441802, 1638407, 65523, 1441802, 1703924, 65523, 1441805, 1703929, 65523, 12, 1966082, 65523, 3, 1966087, 65523, 3, 1966092, 65523, 3, 1966097, 65523, 3, 2031598, 65523, 3, 2031603, 65523, 3, 2031608, 65523, 3, 2031613, 65523, 3, 786442, 65524, 1441802, 983050, 65524, 1441805, 1376238, 65524, 2, 524270, 65526, 6, 1179644, 65527, 5, 1310727, 65527, 1441802, 1310737, 65527, 2, 1376243, 65527, 2, 1376244, 65527, 1441802, 196594, 65528, 327690, 786446, 65528, 2, 786449, 65528, 2, 1310732, 65528, 2, 1638407, 65528, 1441805, 1703924, 65528, 1441805, 1966082, 65528, 3, 1966087, 65528, 3, 1966092, 65528, 3, 1966097, 65528, 3, 2031598, 65528, 3, 2031603, 65528, 3, 2031608, 65528, 3, 2031613, 65528, 3, 786442, 65529, 1441802, 983050, 65529, 1441805, 1310732, 65529, 2, 1376238, 65529, 2, 524270, 65531, 6, 1376243, 65531, 2, 1310727, 65532, 1441802, 1310732, 65532, 2, 1310737, 65532, 2, 1376244, 65532, 1441802, 1638407, 65532, 1441802, 196594, 65533, 327690, 786446, 65533, 2, 786449, 65533, 2, 1703924, 65533, 1441805, 1966082, 65533, 3, 1966087, 65533, 3, 1966092, 65533, 3, 1966097, 65533, 3, 2031598, 65533, 3, 2031603, 65533, 3, 2031608, 65533, 3, 2031613, 65533, 3, 786442, 65534, 1441802, 983050, 65534, 1441805, 1376238, 65534, 2 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 23, 0 )
+}
+
+[node name="GridMap" type="GridMap" parent="obj"]
+mesh_library = ExtResource( 9 )
+data = {
+"cells": PoolIntArray( 1, 5, 1, 6, 5, -1610612736, 11, 5, 0, 16, 5, 0, -131086, 7, 8, 65555, 65516, 8, 65522, 65522, 1048584, 65522, 65524, 8, 65524, 65524, 8, 65523, 65526, 8, 131070, 65526, 917512, 65523, 65528, 1441813, 131070, 65531, 393224 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="GridMap2" type="GridMap" parent="obj"]
+mesh_library = ExtResource( 8 )
+data = {
+"cells": PoolIntArray( 1245181, 65534, 536870918 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 18, 0 )
+}
+
+[node name="turret" type="Spatial" parent="."]
